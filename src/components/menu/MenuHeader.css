@@ -1,0 +1,12 @@
+.MenuHeader {
+    display: flex;
+    background-color: #bca79d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 130px;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* FireFox */
+}
