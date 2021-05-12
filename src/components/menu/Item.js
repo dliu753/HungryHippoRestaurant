@@ -1,11 +1,16 @@
-import React from 'react';
+import Button from './Button'
+import './Item.css'
 
-const Item = () => {
+const Item = ({ item }) => {
     return (
-        <div>
-            
+        <div className='card-container'>
+            <h1>{item.name}</h1>
+            <p>{item.desc}</p>
+            <div className='price-wrapper'>$ {item.price}</div>
+            <div className="btn-wrapper"><Button text="ADD"></Button></div>
         </div>
+
     );
 };
 
-export default Item;
+export default Item

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import CategoryButton from './CategoryButton'
 import './MenuHeader.css'
 import { FiPercent} from 'react-icons/fi'
@@ -14,7 +13,7 @@ const MenuHeader = () => {
                 icon= {<FiPercent />}
             />
             <CategoryButton
-                name='Entrees'
+                name='Mains'
                 icon= {<GiMeal />}
             />
             <CategoryButton

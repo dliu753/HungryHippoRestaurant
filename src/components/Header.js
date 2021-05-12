@@ -9,7 +9,7 @@ const Header = ({title}) => {
 };
 
 Header.defaultProps = {
-    title: 'MAIN HEADER',
+    title: 'Hungry Hippo',
 }
 
 Header.propTypes = {
