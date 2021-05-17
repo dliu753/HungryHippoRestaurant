@@ -24,6 +24,10 @@ function App() {
   }
 
   const Home = () => (
+    useEffect(()=> {
+      document.title = 'Hungry Hippo | Home'
+    }),
+
     <Fragment>
       <h1>Home</h1>
     </Fragment>
@@ -43,7 +47,7 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/menu"  component={() => <Menu menuData={data} />}/>
+          <Route path="/menu" component={() => <Menu menuData={data} />}  />
         </Switch>
       </div>
     </Router>

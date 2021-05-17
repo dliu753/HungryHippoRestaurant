@@ -17,14 +17,8 @@ const Menu = ({menuData}) => {
     const [isVisible, setVisible] = useState([true,false])
 
     useEffect(() => {
-        const testing =  () => {
-          console.log("I'm from Menu.js")
-          console.log(isVisible)
-          console.log(isVisible.map(element => !element )) 
-        }
-    
-        testing()
-    }, [])
+        document.title = "Hungry Hippo | Menu"
+    })
 
     // handleClick(index) changes the visibility of a type of menu item. Index determines if a category is already showing.
     const handleClick = (index) => {
