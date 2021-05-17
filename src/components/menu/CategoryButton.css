@@ -3,6 +3,8 @@
     margin-left: 30px;
     margin-right: 30px;
     width: 100px;
+    border: none;
+    background-color: #e8e8e8;
 }
 
 .IconContainer {
@@ -10,7 +12,7 @@
     padding: 20px;
     border-radius: 50%;
     transition-duration: 0.2s;
-    color: #ff6700;
+    color: #411557;
     font-size: 2.5em;
 }
 
@@ -23,9 +25,17 @@
 }
 
 .CategoryButton:hover .IconContainer{
-    background-color: #ff6700;
+    background-color: #411557;
     color: #00beb7;
 }
 .CategoryButton:hover .CategoryLabel{
-    color: #ff6700;
+    color: #411557;
+}
+
+.CategoryButton:focus .IconContainer{
+    background-color: #411557;
+    color: #00beb7;
+}
+.CategoryButton:focus .CategoryLabel{
+    color: #411557;
 }

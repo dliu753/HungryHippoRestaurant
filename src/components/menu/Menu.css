@@ -1,5 +1,6 @@
 .menu-wrapper {
     justify-content: center;
+    align-items: center;
 }
 
 .menu-container {
@@ -10,4 +11,18 @@
     align-items: center;
     background-color: teal;
     max-width: 1200px;
+    margin: 0 auto;
+}
+
+.MenuHeader {
+    display: flex;
+    background-color: #e8e8e8;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 120px;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* FireFox */
 }

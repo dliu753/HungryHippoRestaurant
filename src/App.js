@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import Header from './components/Header'
+import { useState, useEffect, Fragment } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Menu from './components/menu/Menu'
 
 function App() {
@@ -7,10 +7,8 @@ function App() {
 
   useEffect(()=> {
     const getData = async () => {
-      const mainsData = await fetchData("mains")
-      const drinksData = await fetchData("drinks")
-      const output = [mainsData, drinksData]
-      setData(output)
+      const menuData = await fetchData("menu")
+      setData(menuData)
     }
 
     getData()
@@ -25,12 +23,30 @@ function App() {
     return fetchData
   }
 
+  const Home = () => (
+    <Fragment>
+      <h1>Home</h1>
+    </Fragment>
+  );
 
   return (
-    <div className="wrapper">
-      <Header />
-      <Menu menuData={data}/>
-    </div>
+    <Router>
+      <div className="wrapper">
+        <header className='header'>
+          <h1>Hungry Hippo Bistro</h1>
+          <nav>
+              <ul>
+                  <li><Link to='/'>Home</Link></li>
+                  <li><Link to='/menu'>Menu</Link></li>
+              </ul>
+          </nav>
+        </header>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/menu"  component={() => <Menu menuData={data} />}/>
+        </Switch>
+      </div>
+    </Router>
 
   );
 }

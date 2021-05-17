@@ -1,16 +1,14 @@
 import PropTypes from 'prop-types'
 import './CategoryButton.css'
 
-const CategoryButton = ({icon, name, onHover}) => {
+const CategoryButton = ({icon, name, onClick}) => {
     return (
-        <div className = 'CategoryButton'>
-            <div 
-                className='IconContainer'
-            >
+        <button onClick = {onClick} className = 'CategoryButton'>
+            <div className='IconContainer'>
                 {icon}
             </div>
             <div className='CategoryLabel'>{name}</div>
-        </div>
+        </button>
     );
 };
 

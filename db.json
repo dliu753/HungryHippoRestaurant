@@ -1,45 +1,50 @@
 {
-  "mains": [
+  "menu": [
     {
       "id": 1,
+      "Category": "Mains",
       "name": "Hippo Burger",
       "desc": "A juicy in house burger made from ethically sourced grounded Hippos. Flame grilled to perfection.",
       "price": 34.99
     },
     {
       "id": 2,
+      "Category": "Mains",
       "name": "Hippo Steak",
       "desc": "Our steaks are dry aged for 99 years to achieve the ultimate taste. Steaks are served only medium-rare, anything different is an insult towards our world-renown chefs.",
       "price": 89.99
     },
     {
       "id": 3,
+      "Category": "Mains",
       "name": "Spaghetti + Hippo Balls",
       "desc": "Our spaghetti is made fresh daily accompanied by only the most juicy pairs of Hippo balls.",
       "price": 69.99
     },
     {
       "id": 4,
+      "Category": "Mains",
       "name": "Hippo Pot Pie",
       "desc": "Freshly baked daily. This is the ultimate blend of sweet and savory to blast your taste buds to the next level.",
       "price": 39.99
     },
     {
       "id": 5,
+      "Category": "Mains",
       "name": "Braised Hippo",
       "desc": "This braised Hippo meat will take you to Nirvana.",
       "price": 69.99
-    }
-  ],
-  "drinks": [
+    },
     {
-      "id": 1,
+      "id": 6,
+      "Category": "Drinks",
       "name": "Hippo Milk",
       "desc": "Decadent flavour profile from the freshest of fresh Hippos",
       "price": 24.99
     },
     {
-      "id": 2,
+      "id": 7,
+      "Category": "Drinks",
       "name": "Orange Juice",
       "desc": "Sweet and tangy organic orange juice.",
       "price": 7.99
