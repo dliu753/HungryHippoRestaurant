@@ -1,4 +1,4 @@
-const Button = ({text}) => {
+const Button = ({text, onClick}) => {
     const btnStyle = {
         backgroundColor: "red",
         color: "white",
@@ -14,6 +14,7 @@ const Button = ({text}) => {
         <button
             style={btnStyle}
             className='btn'
+            onClick={onClick}
         >
             {text}
         </button>

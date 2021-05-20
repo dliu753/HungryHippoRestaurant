@@ -1,0 +1,28 @@
+.icon-container {
+    position: fixed;
+    font-size: 1.9em;
+    background-color: darkgray;
+    border-radius: 50%;
+    padding: 18px;
+    bottom: 25px;
+    right: 25px;
+
+}
+
+.counter {
+    position: fixed;
+    font-size: 12px;
+    background-color: red;
+    border-radius: 20%;
+    padding: 5px;
+    bottom: 25px;
+    right: 25px;
+}
+
+.expand-cart {
+    position: fixed;
+    background-color: darkgray;
+    width: 50%;
+    top: 0px;
+    bottom: 0px;
+}
