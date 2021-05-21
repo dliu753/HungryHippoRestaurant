@@ -13,7 +13,6 @@ const Button = ({text, onClick}) => {
     return (
         <button
             style={btnStyle}
-            className='btn'
             onClick={onClick}
         >
             {text}
