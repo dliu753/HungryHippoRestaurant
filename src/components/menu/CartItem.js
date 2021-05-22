@@ -1,7 +1,9 @@
 
 const CartItem = ({ item, quantity, remove }) => {
-    const handleClick = () => {
-        // remove()
+
+    const handleClick = (item) => {
+        // console.log("I'm from CartItem")
+        remove(item)
     }
 
     return(
@@ -10,7 +12,7 @@ const CartItem = ({ item, quantity, remove }) => {
             <p>{item.desc}</p>
             <p>$ {item.price}</p>
             <p>Quantity: {quantity}</p>
-            <button onClick={ ()=> handleClick() }>remove</button>
+            <button onClick={ ()=> handleClick(item) }>remove</button>
         </div>
 
     );

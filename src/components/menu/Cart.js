@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import CartItems from './CartItems'
-import CartItem from './CartItem'
 import './Cart.css'
 
 const Cart = ({MenuData, RemoveItem}) => {
@@ -24,7 +23,9 @@ const Cart = ({MenuData, RemoveItem}) => {
         // console.log('bill: ' + bill + ' count: ' + count)
         setCounter(count)
         setTotal(bill)
+        // console.log("I'm from cart")
         // console.log(RemoveItem)
+        // RemoveItem()
     })
 
     const handleClick = () => {
