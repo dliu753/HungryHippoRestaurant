@@ -4,8 +4,8 @@ import CartItems from './CartItems'
 import CartItem from './CartItem'
 import './Cart.css'
 
-const Cart = (MenuData) => {
-    if(MenuData.MenuData.length === 0 ) {
+const Cart = ({MenuData, RemoveItem}) => {
+    if(MenuData.length === 0 ) {
         // console.log("Im from Cart.js, MenuData === 0")
     }
     const [counter, setCounter] = useState(0)
@@ -16,7 +16,7 @@ const Cart = (MenuData) => {
         // console.log(MenuData)
         let count = 0
         let bill = 0
-        MenuData.MenuData.forEach( (key, value)=> {
+        MenuData.forEach( (key, value)=> {
             // console.log('key.key.price: ' + key.key.price + ' value: ' + key.value)
             count = count + key.value
             bill = bill + (key.key.price * key.value)
@@ -24,19 +24,39 @@ const Cart = (MenuData) => {
         // console.log('bill: ' + bill + ' count: ' + count)
         setCounter(count)
         setTotal(bill)
+        // console.log(RemoveItem)
     })
+
+    const handleClick = () => {
+        // console.log('click')
+        if(showCart) {
+            setSwitchStyle(hideStyle)
+            setShowCart(!showCart)
+        } else {
+            setSwitchStyle(unhideStyle)
+            setShowCart(!showCart)
+        }
+    }
+
+    const hideStyle = {
+       display: "none"
+    }
+    const unhideStyle = {
+        
+    }
+    const [switchStyle, setSwitchStyle] = useState(hideStyle)
 
     return (
         <div className='cart-wrapper'>
-            <div className='icon-container'>
+            <button onClick={handleClick} className='icon-container'>
                 <FiShoppingCart/>
                 <div className='counter'>
                     {counter}
                 </div>
-            </div>
-            <div className='expand-cart'>
+            </button>
+            <div className='expand-cart' style={switchStyle}>
                 <h1>Your Cart</h1>
-                <CartItems items={MenuData}/>
+                <CartItems items={MenuData} remove={RemoveItem}/>
                 <h1>{counter}</h1>
                 <h2>{total.toFixed(2)}</h2>
             </div>

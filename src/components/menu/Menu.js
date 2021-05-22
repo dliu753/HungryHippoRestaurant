@@ -37,6 +37,13 @@ const Menu = ({menuData}) => {
         let cartArray = Array.from(CartMap, ([key, value]) => ({ key, value }))
         setCartArr(cartArray)
     }
+    const removeFromCart = () => {
+        // CartMap.delete(key)
+        // setCartMap(new Map(CartMap))
+        // let cartArray = Array.from(CartMap, ([key, value]) => ({ key, value }))
+        // setCartArr(cartArray)
+        console.log('remove')
+    }
 
     // handleClick(index) changes the visibility of a type of menu item. Index determines if a category is already showing.
     const handleClick = (index) => {
@@ -76,7 +83,7 @@ const Menu = ({menuData}) => {
                 <div className='menu-container'>
                     {isVisible[0] && <Items items={Mains}  addToCart={addToCart} />}
                     {isVisible[1] && <Items items={Drinks} addToCart={addToCart} />}
-                    <Cart MenuData={CartArr} />
+                    <Cart MenuData={CartArr} RemoveItem={removeFromCart} />
                 </div>
             </div>
         </div>
