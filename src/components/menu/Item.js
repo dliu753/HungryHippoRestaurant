@@ -22,6 +22,14 @@ const Item = ({ item, addToCart }) => {
             setQuantity(quantity+1)
         }
     }
+    const handleChangeQuantity = e => {
+        if(e.target.value === ''){
+            e.target.value = 1
+        }
+        if(e.target.validity.valid) {
+            setQuantity(Number(e.target.value))
+        }
+    }
 
     return (
         <div className='card-container'>
@@ -31,7 +39,7 @@ const Item = ({ item, addToCart }) => {
             <div className='btn-wrapper'><Button text="ADD" onClick={ () => handleClick(item,quantity) }></Button></div>
             <div className='quanity-btn-wrapper'>
                 <button className='dec-btn' onClick={decrement}>-</button>
-                <input type='text' value={quantity}></input>
+                <input type='text' pattern="[1-9]|[1-9][0-9]?" value={quantity} onChange={handleChangeQuantity}></input>
                 <button className='inc-btn' onClick={increment}>+</button> 
             </div>
         </div>
