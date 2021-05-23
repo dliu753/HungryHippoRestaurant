@@ -23,6 +23,19 @@ function App() {
     return fetchData
   }
 
+  const addOrder = async (order) => {
+    const res = await fetch('http://localhost:5000/orders', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(order),
+    })
+
+    const data = await res.json()
+    alert("Your order is confirmed.")
+  }
+
   const Home = () => (
     useEffect(()=> {
       document.title = 'Hungry Hippo | Home'
@@ -47,7 +60,7 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/menu" component={() => <Menu menuData={data} />}  />
+          <Route path="/menu" component={() => <Menu menuData={data} addOrder={addOrder} />}  />
         </Switch>
       </div>
     </Router>

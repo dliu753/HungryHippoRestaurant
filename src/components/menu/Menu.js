@@ -5,7 +5,7 @@ import Items from './Items'
 import Cart from './Cart'
 import './Menu.css'
 
-const Menu = ({menuData}) => {
+const Menu = ({menuData, addOrder}) => {
 
     if(menuData.length === 0) {
         // TODO: ERROR show 404 page
@@ -83,7 +83,7 @@ const Menu = ({menuData}) => {
                 <div className='menu-container'>
                     {isVisible[0] && <Items items={Mains}  addToCart={addToCart} />}
                     {isVisible[1] && <Items items={Drinks} addToCart={addToCart} />}
-                    <Cart MenuData={CartArr} RemoveItem={removeFromCart} />
+                    <Cart MenuData={CartArr} RemoveItem={removeFromCart} addOrder={addOrder}/>
                 </div>
             </div>
         </div>

@@ -3,13 +3,29 @@ import { FiShoppingCart } from 'react-icons/fi'
 import CartItems from './CartItems'
 import './Cart.css'
 
-const Cart = ({MenuData, RemoveItem}) => {
+const Cart = ({MenuData, RemoveItem, addOrder}) => {
     if(MenuData.length === 0 ) {
         // console.log("Im from Cart.js, MenuData === 0")
     }
+
+    const hideStyle = {
+        display: "none"
+    }
+    const unhideStyle = {
+         // TODO: add some styling
+    }
+    
     const [counter, setCounter] = useState(0)
     const [total, setTotal] = useState(0)
     const [showCart, setShowCart] = useState(false)
+    const [showCheckout, setShowCheckout] = useState(false)
+    const [toggleExpandCart, setToggleExpandCart] = useState(hideStyle)
+    const [toggleCheckout, setToggleCheckout] = useState(hideStyle)
+    const [toggleCart, setToggleCart] = useState(unhideStyle)
+    const [cartTitle, setCartTitle] = useState('Your Cart')
+    const [orderName, setOrderName] = useState('')
+    const [orderTel, setOrderTel] = useState('')
+    const [orderEmail, setOrderEmail] = useState('')
 
     useEffect(() => {
         // console.log(MenuData)
@@ -23,43 +39,90 @@ const Cart = ({MenuData, RemoveItem}) => {
         // console.log('bill: ' + bill + ' count: ' + count)
         setCounter(count)
         setTotal(bill)
-        // console.log("I'm from cart")
-        // console.log(RemoveItem)
-        // RemoveItem()
     })
 
-    const handleClick = () => {
-        // console.log('click')
+    const handleCartClick = () => {
         if(showCart) {
-            setSwitchStyle(hideStyle)
+            setToggleExpandCart(hideStyle)
             setShowCart(!showCart)
         } else {
-            setSwitchStyle(unhideStyle)
+            setToggleExpandCart(unhideStyle)
             setShowCart(!showCart)
         }
     }
 
-    const hideStyle = {
-       display: "none"
+    const handleCheckoutClick = () => {
+        if(!showCheckout) {
+            setShowCheckout(!showCheckout)
+            setToggleCheckout(unhideStyle)
+            setToggleCart(hideStyle)
+            setCartTitle('Checkout')
+        } else {
+            setShowCheckout(!showCheckout)
+            setToggleCheckout(hideStyle)
+            setToggleCart(unhideStyle)
+            setCartTitle('Your Cart')
+        }
     }
-    const unhideStyle = {
-        
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        // TODO: post to database
+        // alert('Order has been submitted')
+        let order = { name: orderName, telephone: orderTel, email: orderEmail, order: MenuData}
+        // console.log(JSON.stringify(order))
+        addOrder(order)
+
     }
-    const [switchStyle, setSwitchStyle] = useState(hideStyle)
 
     return (
         <div className='cart-wrapper'>
-            <button onClick={handleClick} className='icon-container'>
+            <button onClick={handleCartClick} className='icon-container'>
                 <FiShoppingCart/>
                 <div className='counter'>
                     {counter}
                 </div>
             </button>
-            <div className='expand-cart' style={switchStyle}>
-                <h1>Your Cart</h1>
-                <CartItems items={MenuData} remove={RemoveItem}/>
-                <h1>{counter}</h1>
-                <h2>{total.toFixed(2)}</h2>
+            <div className='expand-cart' style={toggleExpandCart}>
+                <header className='cart-header'>
+                    <h1>{cartTitle}</h1>
+                    <button onClick={handleCartClick} className='close-cart'>X</button>
+                </header>
+                <div className='cart-wrapper' style={toggleCart}>
+                    <CartItems items={MenuData} remove={RemoveItem}/>
+                    <h1>{counter}</h1>
+                    <h2>{total.toFixed(2)}</h2>
+                    <button onClick={handleCheckoutClick} className='checkout-btn'>checkout</button>
+                </div>
+                <div className='checkout-wrapper' style={toggleCheckout}>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            <input
+                            type="text"
+                            placeholder="Name"
+                            value={orderName}
+                            onChange={ (e) => setOrderName(e.target.value)}
+                            />                            
+                        </label>
+                        <label>
+                            <input
+                            placeholder="Telephone"
+                            type="text" value={orderTel}
+                            onChange={ (e) => setOrderTel(e.target.value)}
+                            />                            
+                        </label>
+                        <label>
+                            <input
+                            placeholder="email"
+                            type="text"
+                            value={orderEmail}
+                            onChange={ (e) => setOrderEmail(e.target.value)}
+                            />                            
+                        </label>
+                        <input type="submit" />
+                    </form>
+                    <button onClick={handleCheckoutClick} className='back-btn'>back</button>
+                </div>
             </div>
         </div>
     );

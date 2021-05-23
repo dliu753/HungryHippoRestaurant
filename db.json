@@ -49,5 +49,90 @@
       "desc": "Sweet and tangy organic orange juice.",
       "price": 7.99
     }
+  ],
+  "orders": [
+    {
+      "name": "david",
+      "telephone": "8888888",
+      "order": [
+        {
+          "key": {
+            "id": 2,
+            "Category": "Mains",
+            "name": "Hippo Steak",
+            "desc": "Our steaks are dry aged for 99 years to achieve the ultimate taste. Steaks are served only medium-rare, anything different is an insult towards our world-renown chefs.",
+            "price": 89.99
+          },
+          "value": 1
+        },
+        {
+          "key": {
+            "id": 1,
+            "Category": "Mains",
+            "name": "Hippo Burger",
+            "desc": "A juicy in house burger made from ethically sourced grounded Hippos. Flame grilled to perfection.",
+            "price": 34.99
+          },
+          "value": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "david",
+      "telephone": "8888888",
+      "email": "fake@fake.com",
+      "order": [
+        {
+          "key": {
+            "id": 1,
+            "Category": "Mains",
+            "name": "Hippo Burger",
+            "desc": "A juicy in house burger made from ethically sourced grounded Hippos. Flame grilled to perfection.",
+            "price": 34.99
+          },
+          "value": 1
+        },
+        {
+          "key": {
+            "id": 2,
+            "Category": "Mains",
+            "name": "Hippo Steak",
+            "desc": "Our steaks are dry aged for 99 years to achieve the ultimate taste. Steaks are served only medium-rare, anything different is an insult towards our world-renown chefs.",
+            "price": 89.99
+          },
+          "value": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Jack",
+      "telephone": "111 1111",
+      "email": "CrazyHorse@CC.CA",
+      "order": [
+        {
+          "key": {
+            "id": 1,
+            "Category": "Mains",
+            "name": "Hippo Burger",
+            "desc": "A juicy in house burger made from ethically sourced grounded Hippos. Flame grilled to perfection.",
+            "price": 34.99
+          },
+          "value": 1
+        },
+        {
+          "key": {
+            "id": 2,
+            "Category": "Mains",
+            "name": "Hippo Steak",
+            "desc": "Our steaks are dry aged for 99 years to achieve the ultimate taste. Steaks are served only medium-rare, anything different is an insult towards our world-renown chefs.",
+            "price": 89.99
+          },
+          "value": 2
+        }
+      ],
+      "id": 3
+    }
   ]
 }
