@@ -36,11 +36,19 @@ const Item = ({ item, addToCart }) => {
             <h1>{item.name}</h1>
             <p>{item.desc}</p>
             <div className='price-wrapper'>$ {item.price}</div>
-            <div className='btn-wrapper'><Button text="ADD" onClick={ () => handleClick(item,quantity) }></Button></div>
-            <div className='quanity-btn-wrapper'>
-                <button className='dec-btn' onClick={decrement}>-</button>
-                <input type='text' pattern="[1-9]|[1-9][0-9]?" value={quantity} onChange={handleChangeQuantity}></input>
-                <button className='inc-btn' onClick={increment}>+</button> 
+            <div className='card-footer'>
+                <div className='btn-wrapper'><button className='add-btn' onClick={ () => handleClick(item,quantity) }>Add to Cart</button></div>
+                <div className='quantity-btn-wrapper'>
+                    <button className='dec-btn' onClick={decrement}>-</button>
+                    <input
+                        className='quantity-input'
+                        type='text'
+                        pattern="[1-9]|[1-9][0-9]?"
+                        value={quantity}
+                        onChange={handleChangeQuantity}>
+                    </input>
+                    <button className='inc-btn' onClick={increment}>+</button> 
+                </div>
             </div>
         </div>
 

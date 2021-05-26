@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
-import { FiShoppingCart } from 'react-icons/fi'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { GrClose } from 'react-icons/gr'
 import CartItems from './CartItems'
 import './Cart.css'
 
 const Cart = ({MenuData, RemoveItem, addOrder}) => {
-    if(MenuData.length === 0 ) {
-        // console.log("Im from Cart.js, MenuData === 0")
-    }
-
     const hideStyle = {
         display: "none"
     }
@@ -29,15 +25,12 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
     const [orderEmail, setOrderEmail] = useState('')
 
     useEffect(() => {
-        // console.log(MenuData)
         let count = 0
         let bill = 0
         MenuData.forEach( (key, value)=> {
-            // console.log('key.key.price: ' + key.key.price + ' value: ' + key.value)
             count = count + key.value
             bill = bill + (key.key.price * key.value)
         })
-        // console.log('bill: ' + bill + ' count: ' + count)
         setCounter(count)
         setTotal(bill)
     })
@@ -68,18 +61,14 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // TODO: post to database
-        // alert('Order has been submitted')
         let order = { name: orderName, telephone: orderTel, email: orderEmail, order: MenuData}
-        // console.log(JSON.stringify(order))
         addOrder(order)
-
     }
 
     return (
         <div className='cart-wrapper'>
             <button onClick={handleCartClick} className='icon-container'>
-                <FiShoppingCart/>
+                <AiOutlineShoppingCart/>
                 <div className='counter'>
                     {counter}
                 </div>
