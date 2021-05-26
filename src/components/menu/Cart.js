@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
+import { GrClose } from 'react-icons/gr'
 import CartItems from './CartItems'
 import './Cart.css'
 
@@ -84,13 +85,12 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
                 </div>
             </button>
             <div className='expand-cart' style={toggleExpandCart}>
-                <header className='cart-header'>
-                    <h1>{cartTitle}</h1>
-                    <button onClick={handleCartClick} className='close-cart'>X</button>
+                <header className='cart-header-wrapper'>
+                    <h1 className='cart-header'>{cartTitle}</h1>
+                    <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
                 </header>
                 <div className='cart-wrapper' style={toggleCart}>
                     <CartItems items={MenuData} remove={RemoveItem}/>
-                    <h1>{counter}</h1>
                     <h2>{total.toFixed(2)}</h2>
                     <button onClick={handleCheckoutClick} className='checkout-btn'>checkout</button>
                 </div>

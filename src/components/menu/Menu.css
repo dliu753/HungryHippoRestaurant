@@ -1,6 +1,24 @@
 .menu-wrapper {
     justify-content: center;
     align-items: center;
+    top: 230px;
+    position: relative;
+}
+
+.header-wrapper {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.category-header {
+    height: 100px;
+    background-color: #00beb7;
+    color: white;
+    font-family: 'Arvo';
+    font-size: 30px;
+    line-height: 100px;
+    padding-left: 20px;
 }
 
 .menu-container {
@@ -9,14 +27,18 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    background-color: teal;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .MenuHeader {
+    position: fixed;
+    z-index: 1;
     display: flex;
+    top: 70px;
+    transition: top 0.5s;
     background-color: #e8e8e8;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     height: 120px;

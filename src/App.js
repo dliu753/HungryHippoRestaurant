@@ -1,6 +1,8 @@
 import { useState, useEffect, Fragment } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Menu from './components/menu/Menu'
+import logo from './hippo.png'
+import './App.css'
 
 function App() {
   const [data, setData] = useState([])
@@ -31,8 +33,7 @@ function App() {
       },
       body: JSON.stringify(order),
     })
-
-    const data = await res.json()
+    // const data = await res.json()
     alert("Your order is confirmed.")
   }
 
@@ -42,7 +43,9 @@ function App() {
     }),
 
     <Fragment>
-      <h1>Home</h1>
+      <div className='logo-wrappper'>
+        <img className='logo' src={logo} alt='Hungry Hippo'/> 
+      </div>
     </Fragment>
   );
 
@@ -50,13 +53,10 @@ function App() {
     <Router>
       <div className="wrapper">
         <header className='header'>
-          <h1>Hungry Hippo Bistro</h1>
-          <nav>
-              <ul>
-                  <li><Link to='/'>Home</Link></li>
-                  <li><Link to='/menu'>Menu</Link></li>
-              </ul>
-          </nav>
+          <div className='links-wrapper'>
+            <Link className='title-link' to='/'>Hungry Hippo Bistro</Link>
+            <Link className='header-link' to='/menu'>Menu</Link>
+          </div>
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
