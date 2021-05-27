@@ -5,11 +5,19 @@ import CartItems from './CartItems'
 import './Cart.css'
 
 const Cart = ({MenuData, RemoveItem, addOrder}) => {
+    const hideSlideSyle = {
+        right: "-600px",
+        transition: "0.3s"
+    }
+    const unhideSlideStyle = {
+        right: "0",
+        transition: "0.3s"
+    }
     const hideStyle = {
         display: "none"
     }
     const unhideStyle = {
-         // TODO: add some styling
+         // remove old styling
     }
     
     const [counter, setCounter] = useState(0)
@@ -37,16 +45,16 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
         if(count >= 1) {
             setToggleCheckoutBtn({})
         } else {
-            setToggleCheckoutBtn({pointerEvents: "none", backgroundColor: "grey"})
+            setToggleCheckoutBtn({pointerEvents: "none", backgroundColor: "#dcdcdc"})
         }
     }, [MenuData])
 
     const handleCartClick = () => {
         if(showCart) {
-            setToggleExpandCart(hideStyle)
+            setToggleExpandCart(hideSlideSyle)
             setShowCart(!showCart)
         } else {
-            setToggleExpandCart(unhideStyle)
+            setToggleExpandCart(unhideSlideStyle)
             setShowCart(!showCart)
         }
     }
@@ -74,21 +82,16 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
     return (
         <div className='cart-wrapper'>
             <button onClick={handleCartClick} className='icon-container'>
-                <AiOutlineShoppingCart/>
+                <AiOutlineShoppingCart color='white' />
                 <div className='counter'>
                     {counter}
                 </div>
             </button>
             <header className='cart-header-wrapper' style={toggleExpandCart}>
-                    <div className='cart-header'>{cartTitle}</div>
-                    <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
+                <div className='cart-header'>{cartTitle}</div>
+                <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
             </header>
             <div className='expand-cart' style={toggleExpandCart}>
-                {/* <header className='cart-header-wrapper'>
-                    <div className='cart-header'>{cartTitle}</div>
-                    <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
-                </header> */}
-
                 <div className='outer-cart-wrapper'>
                     <div className='cart-wrapper' style={toggleCart}>
                         <CartItems items={MenuData} remove={RemoveItem}/>

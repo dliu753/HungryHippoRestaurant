@@ -1,3 +1,4 @@
+import './CartItem.css'
 
 const CartItem = ({ item, quantity, remove }) => {
 
@@ -7,11 +8,13 @@ const CartItem = ({ item, quantity, remove }) => {
 
     return(
         <div className='item-container'>
-            <div>{item.name}</div>
-            <p>{item.desc}</p>
-            <p>$ {item.price}</p>
-            <p>Quantity: {quantity}</p>
-            <button onClick={ ()=> handleClick(item) }>remove</button>
+            <div className='inner-text-container'>
+                <div className='item-name'>{item.name}</div>
+                <p className='desc'>{item.desc}</p>
+            </div>
+            <div className='price'>${item.price}</div>
+            <div className='qty'>{quantity}</div>
+            <button className='remove-btn' onClick={ ()=> handleClick(item) }>Remove Item</button>
         </div>
 
     );

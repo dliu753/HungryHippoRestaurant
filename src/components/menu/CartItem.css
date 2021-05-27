@@ -1,0 +1,40 @@
+.item-container {
+    position: relative;
+    font-family: 'Arvo', serif;
+    padding: 10px;
+    color: #411557;
+}
+
+.inner-text-container {
+    margin: 10px;
+    padding-left: 20px;
+}
+
+.item-name {
+    font-size: 18px;
+}
+
+.desc {
+    color: darkgray;
+    font-size: 12px;
+}
+
+.qty {
+    position: absolute;
+    top: 20px;
+}
+
+.price {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.remove-btn {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
