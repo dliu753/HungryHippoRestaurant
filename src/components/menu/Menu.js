@@ -28,7 +28,7 @@ const Menu = ({menuData, addOrder}) => {
                 setScrollPos(document.documentElement.scrollTop)
                 setToggleNav('70px')
             }
-        } 
+        }
     })
 
     const[CartArr, setCartArr] = useState([])    

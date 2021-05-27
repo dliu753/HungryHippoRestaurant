@@ -31,7 +31,7 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     right:15px;
-    top:38px;
+    top:35px;
 }
 
 .quantity-btn-wrapper {
@@ -44,19 +44,21 @@ h1 {
     border:none;
     background-color: white;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .dec-btn {
     border:none;
     background-color: white;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .inc-btn:active {
     font-weight: bold;
 }
 
-.dec-bth:active {
+.dec-btn:active {
     font-weight: bold;
 }
 
@@ -75,8 +77,9 @@ h1 {
     padding-bottom: 15px;
     padding-right: 15px;
     padding-left: 15px;
-    border-radius: 12px;
+    border-radius: 16px;
     border: none;
+    cursor: pointer;
 }
 
 .add-btn:active {

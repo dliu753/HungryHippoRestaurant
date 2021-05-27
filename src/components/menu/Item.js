@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Button from './Button'
 import './Item.css'
 
 const Item = ({ item, addToCart }) => {

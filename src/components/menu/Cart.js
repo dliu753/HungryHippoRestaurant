@@ -23,6 +23,7 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
     const [orderName, setOrderName] = useState('')
     const [orderTel, setOrderTel] = useState('')
     const [orderEmail, setOrderEmail] = useState('')
+    const [toggleCheckoutBtn, setToggleCheckoutBtn] = useState({})
 
     useEffect(() => {
         let count = 0
@@ -33,7 +34,12 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
         })
         setCounter(count)
         setTotal(bill)
-    })
+        if(count >= 1) {
+            setToggleCheckoutBtn({})
+        } else {
+            setToggleCheckoutBtn({pointerEvents: "none", backgroundColor: "grey"})
+        }
+    }, [MenuData])
 
     const handleCartClick = () => {
         if(showCart) {
@@ -73,16 +79,32 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
                     {counter}
                 </div>
             </button>
-            <div className='expand-cart' style={toggleExpandCart}>
-                <header className='cart-header-wrapper'>
-                    <h1 className='cart-header'>{cartTitle}</h1>
+            <header className='cart-header-wrapper' style={toggleExpandCart}>
+                    <div className='cart-header'>{cartTitle}</div>
                     <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
-                </header>
-                <div className='cart-wrapper' style={toggleCart}>
-                    <CartItems items={MenuData} remove={RemoveItem}/>
-                    <h2>{total.toFixed(2)}</h2>
-                    <button onClick={handleCheckoutClick} className='checkout-btn'>checkout</button>
+            </header>
+            <div className='expand-cart' style={toggleExpandCart}>
+                {/* <header className='cart-header-wrapper'>
+                    <div className='cart-header'>{cartTitle}</div>
+                    <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
+                </header> */}
+
+                <div className='outer-cart-wrapper'>
+                    <div className='cart-wrapper' style={toggleCart}>
+                        <CartItems items={MenuData} remove={RemoveItem}/>
+                        <hr />
+                    </div>
+                    <div className='cart-footer'>
+                        <div className='cart-total'>Your order total is: <span className='right-side'>${total.toFixed(2)}</span></div>
+                        <div className='cart-counter'>Number of Items: <span className='right-side'>{counter}</span></div>
+                    </div>
+                    <div className='cart-wrapper' style={toggleCart}>
+                        <hr />
+                        <button onClick={handleCheckoutClick} style={toggleCheckoutBtn} className='checkout-btn'>checkout</button>   
+                    </div>
                 </div>
+
+                {/* hidden checkout form */}
                 <div className='checkout-wrapper' style={toggleCheckout}>
                     <form onSubmit={handleSubmit}>
                         <label>

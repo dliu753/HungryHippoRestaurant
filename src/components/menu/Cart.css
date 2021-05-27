@@ -8,6 +8,7 @@
     padding: 18px;
     bottom: 25px;
     right: 25px;
+    cursor: pointer;
 }
 
 .counter {
@@ -22,25 +23,74 @@
 
 .expand-cart {
     position: fixed;
-    background-color: white;
+    z-index: 2;
+    background-color: darkgray;
     width: 600px;
     right: 0px;
-    top: 0px;
+    top: 170px;
     bottom: 0px;
     overflow: scroll;
 }
 
-.cart-header {
-    color: red;
+.outer-cart-wrapper {
+    padding: 30px;
+}
+
+.cart-header-wrapper {
+    position: fixed;
+    z-index: 3;
+    width: 600px;
+    height: 100px;
+    right: 0;
+    top: 70px;
     background-color: #f5f5f5;
-    padding: 20px;
+    line-height: 100px;
+}
+
+.cart-header {
+    font-family: 'Arvo', serif;
+    font-size: 26px;
+    color: black;
+    padding-left: 30px;
 }
 
 .close-cart {
     position: fixed;
     background-color: transparent;
-    right: 20px;
-    top: 50px;
+    right: 30px;
+    top: 110px;
     border: none;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-footer {
+    line-height: 2.2;
+}
+
+.checkout-btn {
+    background-color: #411557;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-total {
+    color: black;
+}
+
+.cart-counter {
+    color: black;
+}
+
+.right-side {
+    position: absolute;
+    right: 30px;
 }
