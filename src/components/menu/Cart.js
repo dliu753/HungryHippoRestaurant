@@ -7,11 +7,11 @@ import './Cart.css'
 const Cart = ({MenuData, RemoveItem, addOrder}) => {
     const hideSlideSyle = {
         right: "-600px",
-        transition: "0.3s"
+        transition: "0.4s"
     }
     const unhideSlideStyle = {
         right: "0",
-        transition: "0.3s"
+        transition: "0.4s"
     }
     const hideStyle = {
         display: "none"
@@ -32,8 +32,10 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
     const [orderTel, setOrderTel] = useState('')
     const [orderEmail, setOrderEmail] = useState('')
     const [toggleCheckoutBtn, setToggleCheckoutBtn] = useState({})
+    const [togglePulse, setTogglePulse] = useState({})
 
     useEffect(() => {
+        setTogglePulse({})
         let count = 0
         let bill = 0
         MenuData.forEach( (key, value)=> {
@@ -44,6 +46,13 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
         setTotal(bill)
         if(count >= 1) {
             setToggleCheckoutBtn({})
+            setTogglePulse({
+                boxShadow: "0 0 0 0 rgba(0, 0, 0, 0)",
+                animation: "pulse 0.4s"
+            })
+            setTimeout(()=> {
+                setTogglePulse({})
+            },400)
         } else {
             setToggleCheckoutBtn({pointerEvents: "none", backgroundColor: "#dcdcdc"})
         }
@@ -81,7 +90,7 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
 
     return (
         <div className='cart-wrapper'>
-            <button onClick={handleCartClick} className='icon-container'>
+            <button onClick={handleCartClick} className='icon-container' style={togglePulse}>
                 <AiOutlineShoppingCart color='white' />
                 <div className='counter'>
                     {counter}
