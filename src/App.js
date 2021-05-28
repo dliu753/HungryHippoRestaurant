@@ -1,7 +1,7 @@
-import { useState, useEffect, Fragment } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Menu from './components/menu/Menu'
-import logo from './hippo.png'
+import Home from './Home'
 import './App.css'
 
 function App() {
@@ -26,28 +26,15 @@ function App() {
   }
 
   const addOrder = async (order) => {
-    const res = await fetch('http://localhost:5000/orders', {
+    await fetch('http://localhost:5000/orders', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(order),
     })
-    // const data = await res.json()
     alert("Your order is confirmed.")
   }
-
-  const Home = () => (
-    useEffect(()=> {
-      document.title = 'Hungry Hippo | Home'
-    }),
-
-    <Fragment>
-      <div className='logo-wrappper'>
-        <img className='logo' src={logo} alt='Hungry Hippo'/> 
-      </div>
-    </Fragment>
-  );
 
   return (
     <Router>

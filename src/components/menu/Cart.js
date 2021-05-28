@@ -117,6 +117,10 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
                 setEmailError(error)
                 otherError = telError && nameError
                 break
+            default:
+                otherError = false
+                error = false
+                console.log("Error: Form error missed all cases")
         }
         if(error && otherError) {
             setToggleSubmit({})
