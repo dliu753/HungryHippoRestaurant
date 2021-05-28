@@ -59,9 +59,19 @@
     position: absolute;
     background-color: transparent;
     right: 30px;
-    top: 35px;
+    top: 38px;
     border: none;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.back-btn {
+    position: absolute;
+    background-color: transparent;
+    right: 90px;
+    top: 35px;
+    border: none;
+    font-size: 26px;
     cursor: pointer;
 }
 
@@ -79,6 +89,7 @@
     padding-right: 15px;
     padding-left: 15px;
     border-radius: 16px;
+    margin-top: 20px;
     border: none;
     cursor: pointer;
 }
@@ -94,6 +105,41 @@
 .right-side {
     position: absolute;
     right: 30px;
+}
+
+.form {
+    padding: 30px;
+    line-height: 2.2;
+}
+
+.text-input {
+    font-family: 'Arvo', serif;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+}
+
+.error {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    right: 30px;
+    padding: 5px;
+}
+
+.submit-btn {
+    background-color: #411557;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 16px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
 }
 
 @keyframes pulse {

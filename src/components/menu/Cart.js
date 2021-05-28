@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { IoIosArrowBack } from 'react-icons/io'
 import { GrClose } from 'react-icons/gr'
 import CartItems from './CartItems'
 import './Cart.css'
@@ -31,8 +32,12 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
     const [orderName, setOrderName] = useState('')
     const [orderTel, setOrderTel] = useState('')
     const [orderEmail, setOrderEmail] = useState('')
+    const [nameError, setNameError] = useState(false)
+    const [telError, setTelError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
     const [toggleCheckoutBtn, setToggleCheckoutBtn] = useState({})
     const [togglePulse, setTogglePulse] = useState({})
+    const [toggleSubmit, setToggleSubmit] = useState({pointerEvents: "none", backgroundColor: "#dcdcdc"})
 
     useEffect(() => {
         setTogglePulse({})
@@ -88,6 +93,38 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
         addOrder(order)
     }
 
+    const handleFormChange = (event, form) => {
+        let error
+        let otherError
+        if(event.target.value.length >0) {
+            error = true
+        } else {
+            error = false
+        }
+        switch(form) {
+            case 'Name':
+                setOrderName(event.target.value)
+                setNameError(error)
+                otherError = telError && emailError
+                break
+            case 'Telephone':
+                setOrderTel(event.target.value)
+                setTelError(error)
+                otherError = nameError && emailError
+                break
+            case 'email':
+                setOrderEmail(event.target.value)
+                setEmailError(error)
+                otherError = telError && nameError
+                break
+        }
+        if(error && otherError) {
+            setToggleSubmit({})
+        } else {
+            setToggleSubmit({pointerEvents: "none", backgroundColor: "#dcdcdc"})
+        }
+    }
+
     return (
         <div className='cart-wrapper'>
             <button onClick={handleCartClick} className='icon-container' style={togglePulse}>
@@ -99,6 +136,7 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
             <header className='cart-header-wrapper' style={toggleExpandCart}>
                 <div className='cart-header'>{cartTitle}</div>
                 <button onClick={handleCartClick} className='close-cart'><GrClose /></button>
+                <button onClick={handleCheckoutClick} className='back-btn' style={toggleCheckout}><IoIosArrowBack /></button>
             </header>
             <div className='expand-cart' style={toggleExpandCart}>
                 <div className='outer-cart-wrapper'>
@@ -118,33 +156,42 @@ const Cart = ({MenuData, RemoveItem, addOrder}) => {
 
                 {/* hidden checkout form */}
                 <div className='checkout-wrapper' style={toggleCheckout}>
-                    <form onSubmit={handleSubmit}>
+                    <form className='form' onSubmit={handleSubmit}>
                         <label>
                             <input
+                            className='text-input'
                             type="text"
                             placeholder="Name"
                             value={orderName}
-                            onChange={ (e) => setOrderName(e.target.value)}
-                            />                            
+                            onChange={(e) => handleFormChange(e,'Name')}
+                            />
+                            {!nameError && <div className='error'>name cannot be blank</div> }                     
                         </label>
+                        <hr />
                         <label>
                             <input
+                            className='text-input'
                             placeholder="Telephone"
                             type="text" value={orderTel}
-                            onChange={ (e) => setOrderTel(e.target.value)}
-                            />                            
+                            onChange={(e) => handleFormChange(e,'Telephone')}
+                            />
+                            {!telError && <div className='error'>telephone cannot be blank</div> }                                 
                         </label>
+                        <hr />
                         <label>
                             <input
+                            className='text-input'
                             placeholder="email"
                             type="text"
                             value={orderEmail}
-                            onChange={ (e) => setOrderEmail(e.target.value)}
-                            />                            
+                            onChange={(e) => handleFormChange(e,'email')}
+                            />
+                            {!emailError && <div className='error'>email cannot be blank</div> }                                 
                         </label>
-                        <input type="submit" />
+                        <hr />
+                        <input className='submit-btn' type="submit" style={toggleSubmit}/>
                     </form>
-                    <button onClick={handleCheckoutClick} className='back-btn'>back</button>
+                    
                 </div>
             </div>
         </div>
