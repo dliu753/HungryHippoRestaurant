@@ -7,9 +7,13 @@ import './Menu.css'
 
 const Menu = ({menuData, addOrder}) => {
     const Mains = menuData.filter((item)=>{return item.Category === "Mains"})
+    const Vegetarian = menuData.filter((item=>{return item.Category === "Vegetarian"}))
+    const Sides = menuData.filter((item=>{return item.Category === "Sides"}))
+    const Dessert = menuData.filter((item=>{return item.Category === "Dessert"}))
     const Drinks = menuData.filter((item)=>{return item.Category === "Drinks"})
+
     // isVisible keeps track which category of items are showing in an Arr of bools
-    const [isVisible, setVisible] = useState([true,false])
+    const [isVisible, setVisible] = useState([true,false,false,false,false])
     const [CartMap, setCartMap] = useState(new Map())
     const [toggleNav, setToggleNav] = useState('70px')
     const [scrollPos, setScrollPos] = useState(0)
@@ -53,10 +57,13 @@ const Menu = ({menuData, addOrder}) => {
 
     // handleClick(index) changes the visibility of a type of menu item. Index determines if a category is already showing.
     const handleClick = (index, title) => {
-        if(isVisible[index] === true) {
-            return
-        }
-        setVisible(isVisible.map(element => !element))
+        // if(isVisible[index] === true) {
+        //     return
+        // }
+        
+        let tempArr = isVisible.map((element) => false)
+        tempArr[index] = true
+        setVisible(tempArr)
         setHeaderTitle(title)
     }
     
@@ -69,19 +76,22 @@ const Menu = ({menuData, addOrder}) => {
                     icon= {<GiMeal />}
                 />
                 <CategoryButton
-                    name='Salads'
+                    onClick={ ()=>handleClick(1,'Vegetarian') }
+                    name='Vegetarian'
                     icon= {<GiThreeLeaves />}
                 />
                 <CategoryButton
+                    onClick={ ()=>handleClick(2,'Sides') }
                     name='Sides'
                     icon= {<GiFrenchFries />}
                 />
                 <CategoryButton
+                    onClick={ ()=>handleClick(3,'Dessert') }
                     name='Dessert'
                     icon= {<GiIceCreamCone />}
                 />
                 <CategoryButton
-                    onClick={ () => handleClick(1, 'Drinks') }
+                    onClick={ () => handleClick(4,'Drinks') }
                     name='Drinks'
                     icon= {<GiDrinkMe />}
                 />
@@ -92,7 +102,10 @@ const Menu = ({menuData, addOrder}) => {
                 </div>
                 <div className='menu-container'>
                     {isVisible[0] && <Items items={Mains}  addToCart={addToCart} />}
-                    {isVisible[1] && <Items items={Drinks} addToCart={addToCart} />}
+                    {isVisible[1] && <Items items={Vegetarian} addToCart={addToCart} />}
+                    {isVisible[2] && <Items items={Sides} addToCart={addToCart} />}
+                    {isVisible[3] && <Items items={Dessert} addToCart={addToCart} />}
+                    {isVisible[4] && <Items items={Drinks} addToCart={addToCart} />}
                     <Cart MenuData={CartArr} RemoveItem={removeFromCart} addOrder={addOrder}/>
                 </div>
             </div>
