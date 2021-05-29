@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dliu753/HungryHippoRestaurant/static/css/main.235d2769.chunk.css",
+    "main.js": "/dliu753/HungryHippoRestaurant/static/js/main.b7156d04.chunk.js",
+    "main.js.map": "/dliu753/HungryHippoRestaurant/static/js/main.b7156d04.chunk.js.map",
+    "runtime-main.js": "/dliu753/HungryHippoRestaurant/static/js/runtime-main.b4c018b9.js",
+    "runtime-main.js.map": "/dliu753/HungryHippoRestaurant/static/js/runtime-main.b4c018b9.js.map",
+    "static/js/2.3e73a6e6.chunk.js": "/dliu753/HungryHippoRestaurant/static/js/2.3e73a6e6.chunk.js",
+    "static/js/2.3e73a6e6.chunk.js.map": "/dliu753/HungryHippoRestaurant/static/js/2.3e73a6e6.chunk.js.map",
+    "static/js/3.d0612f51.chunk.js": "/dliu753/HungryHippoRestaurant/static/js/3.d0612f51.chunk.js",
+    "static/js/3.d0612f51.chunk.js.map": "/dliu753/HungryHippoRestaurant/static/js/3.d0612f51.chunk.js.map",
+    "index.html": "/dliu753/HungryHippoRestaurant/index.html",
+    "static/css/main.235d2769.chunk.css.map": "/dliu753/HungryHippoRestaurant/static/css/main.235d2769.chunk.css.map",
+    "static/js/2.3e73a6e6.chunk.js.LICENSE.txt": "/dliu753/HungryHippoRestaurant/static/js/2.3e73a6e6.chunk.js.LICENSE.txt",
+    "static/media/hippo.232d6b0e.png": "/dliu753/HungryHippoRestaurant/static/media/hippo.232d6b0e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b4c018b9.js",
+    "static/js/2.3e73a6e6.chunk.js",
+    "static/css/main.235d2769.chunk.css",
+    "static/js/main.b7156d04.chunk.js"
+  ]
+}
