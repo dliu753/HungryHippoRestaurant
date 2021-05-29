@@ -3,6 +3,8 @@
 
 This application is built using React. JSON server is used to simulate the backend.
 
+[Hungry Hippo](https://dliu753.github.io/HungryHippoRestaurant/)
+
 ![alt text](https://github.com/dliu753/HungryHippoRestaurant/blob/main/extra/screen.png)
 
 ## Usage
