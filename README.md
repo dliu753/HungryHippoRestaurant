@@ -3,7 +3,7 @@
 
 This application is built using React. JSON server is used to simulate the backend.
 
-![alt text](https://github.com/dliu753/HungryHippoRestaurant/blob/main/extra/screen.PNG)
+![alt text](https://github.com/dliu753/HungryHippoRestaurant/blob/main/extra/screen.png)
 
 ## Usage
 On console Node dependencies must be installed.
